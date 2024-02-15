@@ -3,10 +3,11 @@ import Image from 'next/image'
 import React from 'react'
 
 type Props = {
-    slide: Slide
+    slide: Slide,
+    index: number
 }
 
-const ThumbnailItem = ({ slide }: Props) => {
+const ThumbnailItem = ({ slide, index }: Props) => {
   const {
         title, aurthor, url, description, topic
     } = slide
@@ -23,7 +24,7 @@ const ThumbnailItem = ({ slide }: Props) => {
         {/* Content */}
         <div className='absolute bottom-2 left-2 text-white'>
             <div className='font-bold'>
-                slider
+                slider: {index + 1}
             </div>
             <div className='font-normal'>
                 Description

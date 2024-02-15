@@ -39,28 +39,28 @@ export const slides = [
         url: '/img-1.jpg',
         aurthor: 'Marry Smith',
         title: 'Portfolio',
-        topic: 'Animals',
+        topic: 'Projects',
         description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat sequi et quis quasi impedit repellendus, assumenda nobis atque consequuntur, nihil deserunt dolores cumque. Voluptatum eum id vero odit explicabo.'
     },
     {
         url: '/img-2.jpg',
-        aurthor: 'Jenny Simmons',
-        title: 'Portfolio',
-        topic: 'Animals',
+        aurthor: 'Photoshop',
+        title: 'Promotions',
+        topic: 'Print - Digital',
         description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat sequi et quis quasi impedit repellendus, assumenda nobis atque consequuntur, nihil deserunt dolores cumque. Voluptatum eum id vero odit explicabo.'
     },
     {
         url: '/img-3.jpg',
         aurthor: 'Dane Jones',
-        title: 'Portfolio',
+        title: 'Web Development',
         topic: 'Animals',
         description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat sequi et quis quasi impedit repellendus, assumenda nobis atque consequuntur, nihil deserunt dolores cumque. Voluptatum eum id vero odit explicabo.'
     },
     {
         url: '/img-4.jpg',
-        aurthor: 'Michale Murry',
-        title: 'Portfolio',
-        topic: 'Animals',
+        aurthor: 'Photoshop',
+        title: 'Promotions',
+        topic: 'Print - Digital',
         description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat sequi et quis quasi impedit repellendus, assumenda nobis atque consequuntur, nihil deserunt dolores cumque. Voluptatum eum id vero odit explicabo.'
     }
 ]

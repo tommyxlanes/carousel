@@ -2,9 +2,9 @@
 import { Project, Slide } from '@/typings'
 import Image from 'next/image'
 
-import { motion } from 'framer-motion'
+import { motion, useAnimate } from 'framer-motion'
 import { clsx } from 'clsx'
-import { useActiveSelection } from '@/context/ActiveContext'
+import { useActiveSelection } from '@/context/slideContext'
 
 import styles from '@/styles/curousel.module.css'
 import { useEffect, useState } from 'react'
@@ -32,25 +32,33 @@ const showContent = {
 }
 
 const CarouselItem = ({ slide, index }: Props) => {
-    const [currentIndex, setcurrentIndex] = useState(0)
+    const {activeSelection} = useActiveSelection()
+    const [animation, setAnimation] = useState<Slide | null>(null);
 
     const {
         title, aurthor, url, description, topic
     } = slide
 
+    useEffect(() => {
+      setAnimation(activeSelection[0])
+    }, [activeSelection, animation])
+
   return (
-    <div className='absolute inset-0'>
+    <div className='absolute inset-0 transition duration-500 h-full'>
         <Image 
             src={url}
             alt={aurthor}
             priority
             fill
-            className={`${styles.next} object-cover`}
+            className={`${styles.next} object-cover relative`}
         />
+        <div className='w-[60%] h-[100dvh] bg-gradient-to-r from-slate-900/80
+            absolute top-0 bottom-0'></div>
         {/* Info */}
         <div className='absolute top-[20%] w-[1140px] text-white
             max-w-[80%] left-1/2 -translate-x-1/2 pr-[30%]'>
             <motion.div 
+                key={Math.floor(1 + Math.random() * 10000)}
                 variants={showContent}
                 initial='initial'
                 custom={1}
@@ -59,6 +67,7 @@ const CarouselItem = ({ slide, index }: Props) => {
                     {aurthor}
             </motion.div>
             <motion.div
+                key={Math.floor(1 + Math.random() * 10000)}
                 variants={showContent}
                 initial='initial'
                 custom={2.2} 
@@ -67,31 +76,38 @@ const CarouselItem = ({ slide, index }: Props) => {
                     {title}
             </motion.div>
             <motion.div 
+                key={Math.floor(1 + Math.random() * 10000)}
                 variants={showContent}
                 initial='initial'
                 custom={3}
                 whileInView='animate'
-                className='uppercase font-bold text-[4rem] text-orange-600'>
+                className='uppercase font-bold text-[2rem] text-orange-600'>
                     {topic}
             </motion.div>
             <motion.div 
+                key={Math.floor(1 + Math.random() * 10000)}
                 variants={showContent}
                 initial='initial'
                 custom={4.2}
                 whileInView='animate'
-                className=''>
+                className='max-w-[75%]'>
                     {description}
             </motion.div>
             <motion.div 
+                key={Math.floor(1 + Math.random() * 10000)}
                 variants={showContent}
                 initial='initial'
                 custom={5}
                 whileInView='animate'
                 className='flex gap-2 mt-6'>
-                <button className='border-2 border-white bg-white px-8 py-2 font-medium text-gray-900'>See More</button>
-                <button className='border-2 border-white px-8 py-2'>Subscribe</button>
+                <button className='border-2 border-white bg-white px-8 
+                py-2 font-medium text-gray-900 shadow-sm shadow-black/40'>See More</button>
+                <button className='border-2 border-white 
+                px-8 py-2'>Subscribe</button>
             </motion.div>
+            
         </div>
+        
     </div>
   )
 }

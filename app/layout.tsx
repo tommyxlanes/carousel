@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
-import { ActiveContextProvider } from "@/context/ActiveContext";
+import { ActiveContextProvider } from "@/context/slideContext";
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${poppins.className} bg-black h-screen`}>
         <ActiveContextProvider>
-          {children}
+            {children}
         </ActiveContextProvider>
       </body>
     </html>
